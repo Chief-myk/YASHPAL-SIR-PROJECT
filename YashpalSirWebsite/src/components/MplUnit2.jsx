@@ -1,10 +1,19 @@
 import React, { useState, useRef } from "react";
 import { FiUpload, FiDownload, FiX, FiFile, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const MplUnit1 = () => {
+const MplUnit2 = () => {
   const [pdfFiles, setPdfFiles] = useState([
-    { name: "Electrical_Science_Notes.pdf", url: "/assests/Electrical_Science_Notes.pdf" },
-    { name: "ESL_FINAL_FILE.pdf", url: "/assests/ESL_FINAL_FILE.pdf" }
+    { name: "Topic_14_Welding_process_Principles,_Classification,_Technique,Weldability.pdf", url: "/assests/MPL/unit2/Topic_14_Welding_process_Principles,_Classification,_Technique,Weldability.pdf" },
+    { name: "Topic 15 Fusion Welding- Arc Welding.pdf", url: "/assests/MPL/unit2/Topic 15 Fusion Welding- Arc Welding.pdf" },
+    { name: "Topic 16  Arc Welding- TIG,MIG,PAW.pdf", url: "/assests/MPL/unit2/Topic 16  Arc Welding- TIG,MIG,PAW.pdf" },
+    { name: "Topic 17 Submerged Metal Arc Welding.pdf", url: "/assests/MPL/unit2/Topic 17 Submerged Metal Arc Welding.pdf" },
+    { name: "Topic 18 Resistance Welding- BUTT,SPOT,SEAM,PROJECTION.pdf", url: "/assests/MPL/unit2/Topic 18 Resistance Welding- BUTT,SPOT,SEAM,PROJECTION.pdf" },
+    { name: "Topic 19 Thermit Welding.pdf", url: "/assests/MPL/unit2/Topic 19 Thermit Welding.pdf" },
+    { name: "Topic 20 Gas Welding.pdf", url: "/assests/MPL/unit2/Topic 20 Gas Welding.pdf" },
+    { name: "Topic_21_Autogenous_Welding_FRICTION,ULTRASONIC,DIFFUSION,EXPLOSIVE.pdf", url: "/assests/MPL/unit2/Topic_21_Autogenous_Welding_FRICTION,ULTRASONIC,DIFFUSION,EXPLOSIVE.pdf" },
+    { name: "Topic 22 Heterogeneous Welding- SOLDERING,BRAZING.pdf", url: "/assests/MPL/unit2/Topic 22 Heterogeneous Welding- SOLDERING,BRAZING.pdf" },
+    { name: "Topic 23 Welding Defects.pdf", url: "/assests/MPL/unit2/Topic 23 Welding Defects.pdf" },
+    { name: "Topic 24 Welding Numerical.pdf", url: "/assests/MPL/unit2/Topic 24 Welding Numerical.pdf" },
   ]);
   const [currentPdfIndex, setCurrentPdfIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -171,4 +180,4 @@ const MplUnit1 = () => {
   );
 };
 
-export default MplUnit1;
+export default MplUnit2;

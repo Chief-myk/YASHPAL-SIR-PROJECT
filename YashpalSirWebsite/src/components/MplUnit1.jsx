@@ -3,8 +3,20 @@ import { FiUpload, FiDownload, FiX, FiFile, FiChevronLeft, FiChevronRight } from
 
 const MplUnit1 = () => {
   const [pdfFiles, setPdfFiles] = useState([
-    { name: "Electrical_Science_Notes.pdf", url: "/assests/Electrical_Science_Notes.pdf" },
-    { name: "ESL_FINAL_FILE.pdf", url: "/assests/ESL_FINAL_FILE.pdf" }
+    { name: "Furnace- Blast Furnace (1).pdf", url: "/assests/MPL/unit1/Furnace- Blast Furnace (1).pdf" },
+    { name: "topic_2_importance_of_manufacturing_towards_technology_and_social.pdf", url: "/assests/MPL/unit1/topic_2_importance_of_manufacturing_towards_technology_and_social.pdf" },
+    { name: "Topic 3 Properties of Materials.pdf", url: "/assests/MPL/unit1/Topic 3 Properties of Materials.pdf" },
+    { name: "topic 4 Classification of Engineering Materials.pdf", url: "/assests/MPL/unit1/topic 4 Classification of Engineering Materials.pdf" },
+    { name: "Topic 5 Cupola Furnace.pdf", url: "/assests/MPL/unit1/Topic 5 Cupola Furnace.pdf" },
+    { name: "topic 6 casting process  and its terminology.pdf", url: "/assests/MPL/unit1/topic 6 casting process  and its terminology.pdf" },
+    { name: "Topic 7- Pattern & Pattern Allowances.pdf", url: "/assests/MPL/unit1/Topic 7- Pattern & Pattern Allowances.pdf" },
+    { name: "Topic 8- Types of Patterns and Pattern Colours.pdf", url: "/assests/MPL/unit1/Topic 8- Types of Patterns and Pattern Colours.pdf" },
+    { name: "Topic_9_Moulding,_Moulding_Sand,_Moulding_Sand_Properties,_Solidification.pdf", url: "/assests/MPL/unit1/Topic_9_Moulding,_Moulding_Sand,_Moulding_Sand_Properties,_Solidification.pdf" },
+    { name: "Topic 10- Core.pdf", url: "/assests/MPL/unit1/Topic 10- Core.pdf" },   
+    { name: "Topic 11- Gating System.pdf", url: "/assests/MPL/unit1/Topic 11- Gating System.pdf" },
+    { name: "Topic12 Casting Techniques.pdf", url: "/assests/MPL/unit1/Topic12 Casting Techniques.pdf" },
+    { name: "Topic 13- casting Defects.pdf", url: "/assests/MPL/unit1/Topic 13- casting Defects.pdf" },
+    
   ]);
   const [currentPdfIndex, setCurrentPdfIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);

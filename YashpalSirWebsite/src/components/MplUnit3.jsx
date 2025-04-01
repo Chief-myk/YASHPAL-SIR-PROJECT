@@ -1,10 +1,17 @@
 import React, { useState, useRef } from "react";
 import { FiUpload, FiDownload, FiX, FiFile, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const MplUnit1 = () => {
+const MplUnit3 = () => {
   const [pdfFiles, setPdfFiles] = useState([
-    { name: "Electrical_Science_Notes.pdf", url: "/assests/Electrical_Science_Notes.pdf" },
-    { name: "ESL_FINAL_FILE.pdf", url: "/assests/ESL_FINAL_FILE.pdf" }
+    { name: "Topic_25_Deformation_Processes_Metal_Forming_Processes_Hot_&_Cold.pdf", url: "/assests/MPL/unit3/Topic_25_Deformation_Processes_Metal_Forming_Processes_Hot_&_Cold.pdf" },
+    { name: "Topic 26 Forging Process.pdf", url: "/assests/MPL/unit3/Topic 26 Forging Process.pdf" },
+    { name: "Topic 27 Rolling Process.pdf", url: "/assests/MPL/unit3/Topic 27 Rolling Process.pdf" },
+    { name: "Topic 28 Drawing - Deep Drawing.pdf", url: "/assests/MPL/unit3/Topic 28 Drawing - Deep Drawing.pdf" },
+    { name: "Topic 29 Extrusion Process.pdf", url: "/assests/MPL/unit3/Topic 29 Extrusion Process.pdf" },
+    { name: "Topic 30 Sheet Metal Operations.pdf", url: "/assests/MPL/unit3/Topic 30 Sheet Metal Operations.pdf" },
+    { name: "Topic 31 Powder Metallurgy.pdf", url: "/assests/MPL/unit3/Topic 31 Powder Metallurgy.pdf" },
+    { name: "Powder Metallurgy.pdf", url: "/assests/MPL/unit3/Powder Metallurgy.pdf" },
+   
   ]);
   const [currentPdfIndex, setCurrentPdfIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -171,4 +178,4 @@ const MplUnit1 = () => {
   );
 };
 
-export default MplUnit1;
+export default MplUnit3;

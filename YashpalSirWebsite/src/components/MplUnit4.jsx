@@ -1,10 +1,14 @@
 import React, { useState, useRef } from "react";
 import { FiUpload, FiDownload, FiX, FiFile, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const MplUnit1 = () => {
-  const [pdfFiles, setPdfFiles] = useState([
-    { name: "Electrical_Science_Notes.pdf", url: "/assests/Electrical_Science_Notes.pdf" },
-    { name: "ESL_FINAL_FILE.pdf", url: "/assests/ESL_FINAL_FILE.pdf" }
+const MplUnit4 = () => {
+  const [pptFiles, setPptFiles] = useState([
+    {
+      name: "unit 1.2 Manufacturing of Plastic component.pptx",
+      url: "/assets/MPL/unit1/unit 1.2 Manufacturing of Plastic component.pptx",
+      // Google Docs Viewer URL
+      previewUrl: `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + '/assets/MPL/unit1/unit 1.2 Manufacturing of Plastic component.pptx')}&embedded=true`
+    },
   ]);
   const [currentPdfIndex, setCurrentPdfIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -95,25 +99,25 @@ const MplUnit1 = () => {
           <>
             {/* PDF Navigation */}
             <div className="flex items-center justify-between mb-4">
-              <button 
+              <button
                 onClick={prevPdf}
                 disabled={pdfFiles.length <= 1}
                 className={`p-2 rounded-full ${pdfFiles.length <= 1 ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:bg-gray-700'}`}
               >
                 <FiChevronLeft size={24} />
               </button>
-              
+
               <div className="flex-1 mx-4 overflow-x-auto">
                 <div className="flex space-x-2">
                   {pdfFiles.map((file, index) => (
-                    <div 
+                    <div
                       key={index}
                       onClick={() => setCurrentPdfIndex(index)}
                       className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-colors ${currentPdfIndex === index ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
                     >
                       <FiFile className="mr-2" />
                       <span className="truncate max-w-xs">{file.name}</span>
-                      <button 
+                      <button
                         onClick={(e) => {
                           e.stopPropagation();
                           removePdf(index);
@@ -126,8 +130,8 @@ const MplUnit1 = () => {
                   ))}
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={nextPdf}
                 disabled={pdfFiles.length <= 1}
                 className={`p-2 rounded-full ${pdfFiles.length <= 1 ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:bg-gray-700'}`}
@@ -136,21 +140,21 @@ const MplUnit1 = () => {
               </button>
             </div>
 
-            {/* PDF Viewer */}
+            {/* PPT Viewer */}
             <div className="w-full h-[65vh] bg-gray-800 rounded-xl overflow-hidden shadow-xl">
               <iframe
-                src={pdfFiles[currentPdfIndex]?.url}
+                src={pptFiles[currentPdfIndex]?.previewUrl}
                 width="100%"
                 height="100%"
                 className="border-none"
-                title={pdfFiles[currentPdfIndex]?.name}
+                title={pptFiles[currentPdfIndex]?.name}
               />
             </div>
 
             {/* Download Button */}
             <div className="mt-6 text-center">
-              <a 
-                href={pdfFiles[currentPdfIndex]?.url} 
+              <a
+                href={pdfFiles[currentPdfIndex]?.url}
                 download={pdfFiles[currentPdfIndex]?.name}
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
               >
@@ -171,4 +175,4 @@ const MplUnit1 = () => {
   );
 };
 
-export default MplUnit1;
+export default MplUnit4;
