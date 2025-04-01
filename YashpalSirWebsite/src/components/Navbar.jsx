@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black px-4 sm:px-6 lg:px-8 py-1 flex flex-wrap justify-between items-center sticky top-0 z-50 shadow-lg">
+    <nav className="bg-gray-900 px-4 sm:px-6 lg:px-8 py-1 flex flex-wrap justify-between items-center sticky top-0 z-50 shadow-lg">
       <div className="flex items-center">
         <Link to="/" className="block w-24 h-24 md:w-32 md:h-32">
           <img 

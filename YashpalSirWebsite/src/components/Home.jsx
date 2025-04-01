@@ -8,7 +8,7 @@ const Home = () => {
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         {[...Array(20)].map((_, i) => (
-          <div 
+          <div
             key={i}
             className="absolute rounded-full bg-white opacity-10"
             style={{
@@ -28,11 +28,11 @@ const Home = () => {
           Professor Yashpal Chopra
         </h1>
         <p className="text-xl italic mb-6 text-indigo-200 animate-slide-up delay-100">
-          Senior Professor | Mentor | Innovator
+          Certified Career Counselor || Freelancer || Assistant Professor by Profession || Diehard Mechanical Engg. || Entrepreneur by Choice || Nature Lover
         </p>
         <div className="animate-slide-up delay-200">
           <img
-            src="/fotor-2025032912356.png" 
+            src="/fotor-2025032912356.png"
             alt="Professor Yashpal Chopra"
             className="rounded-full w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500"
           />
@@ -44,9 +44,14 @@ const Home = () => {
             countless students to excel in the field of technology and engineering.
           </p>
           <p className="text-lg leading-relaxed">
-            He specializes in <strong>Data Structures, Algorithms, Artificial Intelligence, and Cloud Computing</strong>.
+            He specializes in <strong> Automation, Robotics, and Mechanical Engineering.</strong> His multifaceted expertise spans
+            teaching, research guidance, quality management, and student counseling, making him a transformative
+            figure in technical education.
+          </p>
+          <p className="text-lg leading-relaxed">
             With a track record of publishing multiple research papers and mentoring students in national-level competitions,
             he continues to shape the future of technology with his unparalleled dedication.
+            A distinguished academic leader with over 12 years of experience in engineering education and research.
           </p>
         </div>
         <div className="mt-8 animate-slide-up delay-500">
