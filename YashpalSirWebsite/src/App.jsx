@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
 
-import Emn from "./components/emn";
+import Emn from "./components/Emn";
 import Mpl from "./components/Mpl";
 import EmnUnit1 from "./components/EmnUnit1";  // Import the new component
 import MplUnit1 from "./components/MplUnit1";  // Import the new component
