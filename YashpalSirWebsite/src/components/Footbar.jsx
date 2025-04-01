@@ -11,11 +11,11 @@ const Footbar = () => {
   ];
 
   const quickLinks = [
-    { name: "Home", url: "#" },
-    { name: "About", url: "https://yashpal-sir-project.vercel.app/about" },
-    { name: "Projects", url: "https://yashpal-sir-project.vercel.app/projects" },
-    { name: "Notes", url: "https://yashpal-sir-project.vercel.app/notes" },
-    { name: "Contact", url: "https://yashpal-sir-project.vercel.app/contact" }
+    { name: "Home", url: "/" }, // Root path
+    { name: "About", url: "/about" }, // Relative path
+    { name: "Projects", url: "/projects" },
+    { name: "Notes", url: "/notes" },
+    { name: "Contact", url: "/contact" }
   ];
 
   return (
