@@ -12,10 +12,10 @@ const Footbar = () => {
 
   const quickLinks = [
     { name: "Home", url: "/" }, // Root path
-    { name: "About", url: "/about" }, // Relative path
-    { name: "Projects", url: "/projects" },
-    { name: "Notes", url: "/notes" },
-    { name: "Contact", url: "/contact" }
+    { name: "About", url: "/" }, // Relative path
+    { name: "Projects", url: "/" },
+    { name: "Notes", url: "/" },
+    { name: "Contact", url: "/" }
   ];
 
   return (
