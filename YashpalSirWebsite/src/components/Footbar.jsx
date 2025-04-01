@@ -3,19 +3,19 @@ import React from 'react';
 
 const Footbar = () => {
   const socialPlatforms = [
-    { name: "linkedin", url: "https://www.linkedin.com/in/yashpal-chopra-27ab0340/" },
-    { name: "twitter", url: "#" },
-    { name: "facebook", url: "#" },
-    { name: "instagram", url: "#" },
-    { name: "github", url: "#" }
+    { name: "linkedin", url: "https://www.linkedin.com/in/mayankmittal1311/" },
+    { name: "twitter", url: "https://x.com/MayankMittal06" },
+    { name: "facebook", url: "https://www.facebook.com/mayank.mittal.1069020" },
+    { name: "instagram", url: "https://www.instagram.com/mayankmittal.1306/?hl=en" },
+    { name: "github", url: "https://github.com/Chief-myk" }
   ];
 
   const quickLinks = [
     { name: "Home", url: "#" },
-    { name: "About", url: "#" },
-    { name: "Services", url: "#" },
-    { name: "Portfolio", url: "#" },
-    { name: "Contact", url: "#" }
+    { name: "About", url: "https://yashpal-sir-project.vercel.app/about" },
+    { name: "Projects", url: "https://yashpal-sir-project.vercel.app/projects" },
+    { name: "Notes", url: "https://yashpal-sir-project.vercel.app/notes" },
+    { name: "Contact", url: "https://yashpal-sir-project.vercel.app/contact" }
   ];
 
   return (

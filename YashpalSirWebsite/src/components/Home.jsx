@@ -25,7 +25,7 @@ const Home = () => {
 
       <div className="max-w-4xl text-center relative z-10 animate-fade-in">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-slide-up">
-          Professor Yashpal Chopra Sir
+          Professor Yashpal Chopra 
         </h1>
         <p className="text-xl italic mb-6 text-indigo-200 animate-slide-up delay-100">
           Certified Career Counselor || Freelancer || Assistant Professor by Profession || Diehard Mechanical Engg. || Entrepreneur by Choice || Nature Lover
