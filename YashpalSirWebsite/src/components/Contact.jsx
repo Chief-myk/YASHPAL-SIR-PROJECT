@@ -1,32 +1,37 @@
 // components/Contact.js
 import React, { useState } from "react";
 
-const ContactCard = ({ icon, title, text, isLink = false }) => {
+const ContactCard = ({ icon, title, text, isClickable = false }) => {
   return (
-    <div className="flex flex-col items-center bg-gradient-to-br from-gray-900 to-gray-950 p-6 rounded-xl shadow-lg text-center hover:scale-[1.02] transition-all duration-300 h-full group hover:from-blue-900 hover:to-blue-800 border border-gray-700 hover:border-blue-500">
-      <div className="bg-blue-600 p-3 rounded-full mb-4 group-hover:bg-white group-hover:text-blue-600 transition-colors duration-300">
+    <div className={`flex flex-col items-center bg-gradient-to-br from-gray-900 to-gray-950 p-6 rounded-xl shadow-lg text-center transition-all duration-300 h-full group border border-gray-700 ${
+      isClickable 
+        ? "hover:from-blue-900 hover:to-blue-800 hover:border-blue-500 cursor-pointer hover:shadow-blue-500/20" 
+        : ""
+    }`}
+    >
+      <div className={`p-3 rounded-full mb-4 transition-colors duration-300 ${
+        isClickable 
+          ? "bg-blue-600 group-hover:bg-white group-hover:text-blue-600" 
+          : "bg-gray-800"
+      }`}>
         {icon.startsWith("/") ? (
           <img src={icon} alt={title} className="w-8 h-8" />
         ) : (
           <span className="text-2xl">{icon}</span>
         )}
       </div>
-      <h3 className="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+      <h3 className={`text-lg font-semibold transition-colors duration-300 ${
+        isClickable ? "text-white group-hover:text-blue-300" : "text-white"
+      }`}>
         {title}
       </h3>
-      {isLink ? (
-        <a 
-          href={text} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-300 mt-2 text-sm md:text-base hover:text-blue-400 transition-colors duration-300 underline underline-offset-4"
-        >
-          Visit Profile
-        </a>
-      ) : (
-        <p className="text-gray-300 mt-2 text-sm md:text-base group-hover:text-white transition-colors duration-300">
-          {text}
-        </p>
+      <p className="text-gray-300 mt-2 text-sm md:text-base transition-colors duration-300">
+        {text}
+      </p>
+      {isClickable && (
+        <span className="mt-2 text-blue-400 text-xs font-medium transition-all duration-300 group-hover:translate-x-1">
+          Click to connect →
+        </span>
       )}
     </div>
   );
@@ -47,24 +52,27 @@ const Contact = () => {
       icon: "📞", 
       title: "Contact Number", 
       text: "+91-9992192456",
-      href: "tel:+919992192456"
+      href: "tel:+919992192456",
+      isExternal: true
     },
     { 
       icon: "✉️", 
       title: "Email Address", 
       text: "ypschopra@gmail.com",
-      href: "mailto:ypschopra@gmail.com"
+      href: "mailto:ypschopra@gmail.com",
+      isExternal: true
     },
     { 
       icon: "🏢", 
       title: "Office Address", 
-      text: "Professor at, Dr. Akhilesh Das Gupta Institute of Professional Studies, Delhi. Available from 10:00 AM - 6:00 PM. Consider a call to fix an appointment."
+      text: "Professor at Dr. Akhilesh Das Gupta Institute, Delhi. Available 10AM-6PM."
     },
     {
-      icon: "🔗",
+      icon: "/linkedin-svgrepo-com.svg",
       title: "LinkedIn Profile",
-      text: "https://www.linkedin.com/in/yashpal-chopra-27ab0340/",
-      isLink: true
+      text: "yashpal-chopra-27ab0340",
+      href: "https://www.linkedin.com/in/yashpal-chopra-27ab0340/",
+      isExternal: true
     }
   ];
 
@@ -124,34 +132,47 @@ const Contact = () => {
     <div className="min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 mb-4 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 mb-4">
             Get In Touch
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            I'm passionate about mentoring students and helping them shape their future. Whether you need academic guidance, research collaboration, or professional advice, feel free to reach out. I typically respond within 24-48 hours.
+            I'm passionate about mentoring students and helping them shape their future. 
+            Whether you need academic guidance, research collaboration, or professional advice, 
+            feel free to reach out. I typically respond within 24-48 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {contactItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href || (item.isLink ? item.text : "#")} 
-              target={item.isLink || item.href ? "_blank" : "_self"} 
-              rel="noopener noreferrer"
-              className="hover:no-underline"
-            >
-              <ContactCard 
-                icon={item.icon} 
-                title={item.title} 
-                text={item.text} 
-                isLink={item.isLink}
-              />
-            </a>
+            item.href ? (
+              <a 
+                key={index}
+                href={item.href}
+                target={item.isExternal ? "_blank" : "_self"}
+                rel="noopener noreferrer"
+                className="hover:no-underline transition-transform duration-300 hover:-translate-y-1"
+              >
+                <ContactCard 
+                  icon={item.icon} 
+                  title={item.title} 
+                  text={item.text}
+                  isClickable={true}
+                />
+              </a>
+            ) : (
+              <div key={index}>
+                <ContactCard 
+                  icon={item.icon} 
+                  title={item.title} 
+                  text={item.text}
+                  isClickable={false}
+                />
+              </div>
+            )
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-8 md:p-10 mb-16 border border-gray-700">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-8 md:p-10 mb-16 border border-gray-700 hover:border-blue-500 transition-all duration-500">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
@@ -171,10 +192,12 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${errors.name ? "border-red-500" : "border-gray-600"} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
+                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${
+                    errors.name ? "border-red-500" : "border-gray-600 hover:border-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
                   placeholder="John Doe"
                 />
-                {errors.name && <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.name}</p>}
+                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
               </div>
               
               <div className="space-y-2">
@@ -185,10 +208,12 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${errors.email ? "border-red-500" : "border-gray-600"} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
+                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${
+                    errors.email ? "border-red-500" : "border-gray-600 hover:border-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
                   placeholder="john@example.com"
                 />
-                {errors.email && <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.email}</p>}
+                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
               
               <div className="space-y-2">
@@ -199,17 +224,23 @@ const Contact = () => {
                   rows="6"
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${errors.message ? "border-red-500" : "border-gray-600"} focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
+                  className={`w-full px-5 py-3 rounded-xl bg-gray-700 border ${
+                    errors.message ? "border-red-500" : "border-gray-600 hover:border-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 placeholder-gray-500`}
                   placeholder="I'd like to discuss..."
                 ></textarea>
-                {errors.message && <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.message}</p>}
+                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
               
               <div className="pt-2 text-center">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
+                  className={`px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 ${
+                    isSubmitting 
+                      ? "opacity-70 cursor-not-allowed" 
+                      : "hover:from-blue-500 hover:to-blue-600 transform hover:scale-105"
+                  }`}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center space-x-2">
@@ -230,7 +261,7 @@ const Contact = () => {
                 </button>
                 
                 {submitSuccess && (
-                  <div className="mt-6 p-4 bg-green-600/90 text-white rounded-lg animate-fade-in flex items-center justify-center space-x-2">
+                  <div className="mt-6 p-4 bg-green-600/90 text-white rounded-lg flex items-center justify-center space-x-2 animate-fade-in">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
@@ -257,20 +288,18 @@ const Contact = () => {
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-gray-700 hover:border-blue-500"
+                className="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-gray-700 hover:border-blue-500 hover:bg-blue-600/50"
                 aria-label={platform.name}
               >
                 <img 
                   src={`/${platform.name}-svgrepo-com.svg`} 
                   alt={platform.name} 
-                  className="w-6 h-6 filter invert" 
+                  className="w-6 h-6 filter invert opacity-80 hover:opacity-100 transition-opacity" 
                 />
               </a>
             ))}
           </div>
         </div>
-
-     
       </div>
     </div>
   );
