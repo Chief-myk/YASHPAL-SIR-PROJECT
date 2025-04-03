@@ -1,7 +1,84 @@
-// components/About.js
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About = () => {
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  };
+
+  const flipVariants = {
+    offscreen: {
+      rotateX: 90,
+      opacity: 0
+    },
+    onscreen: {
+      rotateX: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 0.8
+      }
+    }
+  };
+
+  const slideInFromLeft = {
+    offscreen: { x: -100, opacity: 0 },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 0.8
+      }
+    }
+  };
+
+  const slideInFromRight = {
+    offscreen: { x: 100, opacity: 0 },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        duration: 0.8
+      }
+    }
+  };
+
   const educationItems = [
     "PhD in Automation And Robotics - Guru Gobind Singh Indraprastha University",
     "MBA in Operations Managment And Marketing - DCRUST, Murthal",
@@ -96,12 +173,23 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      initial="hidden"
+      animate="show"
+      variants={container}
+      className="min-h-screen w-full bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Biography Section */}
-        <div className="bg-white shadow-xl rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1">
+        <motion.div 
+          variants={cardVariants}
+          className="bg-white shadow-xl rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1"
+        >
           <div className="flex flex-col md:flex-row">
-            <div className="relative w-full md:w-1/3 h-64 md:h-auto group">
+            <motion.div 
+              variants={flipVariants}
+              className="relative w-full md:w-1/3 h-64 md:h-auto group"
+            >
               <img
                 src="/yashpalSir.jfif"
                 alt="Professor Yashpal Chopra"
@@ -110,41 +198,54 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
                 <h2 className="text-2xl font-bold">Professor & Dean</h2>
                 <p className="text-sm opacity-90 mt-1">Office of Doctoral Studies, DR. Akhilesh Das Gupta Institute Of Technology, Sonipat, Haryana</p>
-                {/* <div className="mt-4 flex space-x-3">
-                  <a href="#" className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/20 transition-all">
-                    Contact
-                  </a>
-                  <a href="#" className="bg-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-all">
-                    View CV
-                  </a>
-                </div> */}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="w-full md:w-2/3 p-8">
+            <motion.div 
+              variants={slideInFromRight}
+              className="w-full md:w-2/3 p-8"
+            >
               <div className="flex items-center mb-6">
                 <h1 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Biography
                 </h1>
                 <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
               </div>
-              <div className="text-gray-700 space-y-4 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar text-justify">
-                <p className="leading-relaxed">
+              <motion.div 
+                variants={container}
+                className="text-gray-700 space-y-4 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar text-justify"
+              >
+                <motion.p variants={item} className="leading-relaxed">
                   Yashpal Chopra is a dynamic leader in the financial services industry, with a career spanning over two decades. His expertise lies in risk management, surveillance, compliance, and strategic financial operations, making him a key figure in the stock broking sector.
-                </p>
-                <p className="leading-relaxed">Yashpal's journey began with a solid educational foundation in finance, commerce, and technology, equipping him with the skills to navigate complex financial landscapes. Over the years, he has held pivotal roles in top-tier financial institutions, where he played an instrumental role in strengthening risk frameworks, ensuring compliance, and optimizing operational efficiency.</p>
-                <p className="leading-relaxed">Currently serving as the Chief Operating Officer (COO) at SMC Global Securities Limited, Yashpal oversees the company's operational strategies, risk mitigation, and regulatory compliance, ensuring seamless business functions. Prior to this, he held the position of Chief Risk Officer at 5paisa Capital Limited, where he was responsible for designing and implementing robust risk management frameworks to protect assets and enhance financial resilience.</p>
-                <p className="leading-relaxed">His tenure as Deputy General Manager of Risk Management & Surveillance at Indiabulls Ventures further solidified his reputation as a specialist in financial risk assessment and regulatory compliance. His contributions have helped financial institutions mitigate market risks, implement advanced surveillance systems, and stay ahead of evolving regulatory requirements.</p>
-                <p className="leading-relaxed">Beyond his professional accomplishments, Yashpal is known for his strategic mindset, analytical thinking, and leadership skills. He believes in fostering a culture of innovation and integrity in the financial sector. His vision is to leverage technology-driven solutions to enhance the efficiency of risk management and drive sustainable financial growth.</p>
-              </div>
-            </div>
+                </motion.p>
+                <motion.p variants={item} className="leading-relaxed">
+                  Yashpal's journey began with a solid educational foundation in finance, commerce, and technology, equipping him with the skills to navigate complex financial landscapes. Over the years, he has held pivotal roles in top-tier financial institutions, where he played an instrumental role in strengthening risk frameworks, ensuring compliance, and optimizing operational efficiency.
+                </motion.p>
+                <motion.p variants={item} className="leading-relaxed">
+                  Currently serving as the Chief Operating Officer (COO) at SMC Global Securities Limited, Yashpal oversees the company's operational strategies, risk mitigation, and regulatory compliance, ensuring seamless business functions. Prior to this, he held the position of Chief Risk Officer at 5paisa Capital Limited, where he was responsible for designing and implementing robust risk management frameworks to protect assets and enhance financial resilience.
+                </motion.p>
+                <motion.p variants={item} className="leading-relaxed">
+                  His tenure as Deputy General Manager of Risk Management & Surveillance at Indiabulls Ventures further solidified his reputation as a specialist in financial risk assessment and regulatory compliance. His contributions have helped financial institutions mitigate market risks, implement advanced surveillance systems, and stay ahead of evolving regulatory requirements.
+                </motion.p>
+                <motion.p variants={item} className="leading-relaxed">
+                  Beyond his professional accomplishments, Yashpal is known for his strategic mindset, analytical thinking, and leadership skills. He believes in fostering a culture of innovation and integrity in the financial sector. His vision is to leverage technology-driven solutions to enhance the efficiency of risk management and drive sustainable financial growth.
+                </motion.p>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Grid Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={container}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {/* Teaching Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-blue-200">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-blue-200"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                 Teaching
@@ -154,7 +255,10 @@ const About = () => {
             <p className="text-gray-700 mb-6 leading-relaxed">
               Dr. Yashpal is a passionate educator with over 6 years of experience in teaching various subjects related to Engineering Graphics, Manufacturing Process, and Engineering Mechanics.
             </p>
-            <div className="overflow-hidden rounded-lg border border-gray-200">
+            <motion.div 
+              whileHover={{ scale: 1.01 }}
+              className="overflow-hidden rounded-lg border border-gray-200"
+            >
               <table className="w-full divide-y divide-gray-200">
                 <thead>
                   <tr className="bg-gradient-to-r from-gray-100 to-gray-50">
@@ -169,11 +273,15 @@ const About = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Research Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-purple-200">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-purple-200"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Research & Guidance
@@ -183,39 +291,36 @@ const About = () => {
             <p className="text-gray-700 leading-relaxed">
               Dr. Pandey has played a crucial role in guiding research scholars in the areas of statistical modeling and data science. His research contributions include studies on predictive analytics, risk analysis, and business intelligence.
             </p>
-            <div className="mt-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-100">
+            <motion.div 
+              whileHover={{ scale: 1.01 }}
+              className="mt-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-100"
+            >
               <h3 className="font-semibold text-purple-800 mb-2">Research Focus Areas:</h3>
               <ul className="space-y-2">
-                <li className="flex items-start">
-                  <span className="bg-purple-100 text-purple-600 rounded-full p-1 mr-3 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                  <span className="text-gray-700">Statistical Modeling</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-purple-100 text-purple-600 rounded-full p-1 mr-3 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                  <span className="text-gray-700">Predictive Analytics</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-purple-100 text-purple-600 rounded-full p-1 mr-3 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                  <span className="text-gray-700">Business Intelligence</span>
-                </li>
+                {["Statistical Modeling", "Predictive Analytics", "Business Intelligence"].map((item, index) => (
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span className="bg-purple-100 text-purple-600 rounded-full p-1 mr-3 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Education Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-indigo-200">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-indigo-200"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 Education
@@ -224,20 +329,29 @@ const About = () => {
             </div>
             <ul className="space-y-4">
               {educationItems.map((item, index) => (
-                <li key={index} className="flex items-start group">
+                <motion.li 
+                  key={index} 
+                  className="flex items-start group"
+                  whileHover={{ scale: 1.01 }}
+                  variants={item}
+                >
                   <span className="bg-blue-100 text-blue-600 rounded-full p-2 mr-3 flex-shrink-0 group-hover:bg-blue-200 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                     </svg>
                   </span>
                   <span className="text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors">{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Awards Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-yellow-200 md:col-span-2 lg:col-span-1">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-yellow-200 md:col-span-2 lg:col-span-1"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
                 Awards & Honors
@@ -246,40 +360,59 @@ const About = () => {
             </div>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {awardsItems.map((item, index) => (
-                <li key={index} className="flex items-center bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg border border-gray-100 hover:border-blue-200 transition-all hover:shadow-md">
+                <motion.li 
+                  key={index} 
+                  className="flex items-center bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg border border-gray-100 hover:border-blue-200 transition-all hover:shadow-md"
+                  whileHover={{ scale: 1.03 }}
+                  variants={item}
+                >
                   <span className="bg-yellow-100 text-yellow-600 p-2 rounded-full mr-4 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </span>
                   <span className="text-gray-700 font-medium">{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Skills Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-green-200">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-green-200"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
                 Skills & Expertise
               </h1>
               <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-green-400 to-teal-400 rounded-full"></div>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <motion.div 
+              className="flex flex-wrap gap-3"
+              variants={container}
+            >
               {skills.map((item, index) => (
-                <span 
+                <motion.span 
                   key={index} 
                   className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors"
+                  variants={item}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   {item}
-                </span>
+                </motion.span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Certificates Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-red-200">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-red-200"
+            whileHover={{ scale: 1.02 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
                 Certifications
@@ -288,7 +421,12 @@ const About = () => {
             </div>
             <ul className="space-y-4">
               {certificates.map((cert, index) => (
-                <li key={index} className="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors group">
+                <motion.li 
+                  key={index} 
+                  className="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                  variants={item}
+                  whileHover={{ x: 5 }}
+                >
                   <span className="bg-red-100 text-red-600 rounded-full p-3 mr-4 flex-shrink-0 group-hover:bg-red-200 transition-colors">
                     {cert.icon}
                   </span>
@@ -297,13 +435,17 @@ const About = () => {
                     <p className="text-gray-600">{cert.issuer}</p>
                     <p className="text-sm text-gray-500 mt-1">Issued: {cert.date}</p>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Experience Section */}
-          <div className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-orange-200 md:col-span-2 lg:col-span-3">
+          <motion.div 
+            variants={item}
+            className="bg-white shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-transparent hover:border-orange-200 md:col-span-2 lg:col-span-3"
+            whileHover={{ scale: 1.01 }}
+          >
             <div className="flex items-center mb-6">
               <h1 className="text-2xl font-bold text-gray-800 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 Professional Experience
@@ -316,7 +458,14 @@ const About = () => {
               
               <ul className="space-y-8">
                 {experienceItems.map((exp, index) => (
-                  <li key={index} className="relative pl-12 group">
+                  <motion.li 
+                    key={index} 
+                    className="relative pl-12 group"
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.5 }}
+                    variants={index % 2 === 0 ? slideInFromLeft : slideInFromRight}
+                  >
                     {/* Timeline dot */}
                     <div className="absolute left-0 w-6 h-6 rounded-full bg-gradient-to-br from-red-400 to-orange-400 flex items-center justify-center transform translate-x-1/2 z-10">
                       <div className="w-3 h-3 rounded-full bg-white"></div>
@@ -346,14 +495,14 @@ const About = () => {
                         </div>
                       </div>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
