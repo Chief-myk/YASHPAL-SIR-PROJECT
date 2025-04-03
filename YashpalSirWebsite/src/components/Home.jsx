@@ -95,7 +95,7 @@ const Home = () => {
         <motion.div 
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={horizontalVariants}
           className="text-center mb-16"
         >
