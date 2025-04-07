@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
+import { FaRobot, FaMicrochip, FaCogs, FaBrain } from 'react-icons/fa';
+import { GiMechanicalArm } from 'react-icons/gi';
 
 const Home = () => {
   // Animation variants
@@ -64,6 +66,17 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-indigo-700 text-white flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Robotic decorative elements */}
+      <div className="absolute top-20 right-20 opacity-5">
+        <GiMechanicalArm className="text-blue-500 text-9xl" />
+      </div>
+      <div className="absolute bottom-20 left-20 opacity-5">
+        <FaCogs className="text-blue-500 text-9xl" />
+      </div>
+      <div className="absolute top-1/3 left-1/4 opacity-5">
+        <FaRobot className="text-blue-500 text-9xl" />
+      </div>
+
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         {[...Array(20)].map((_, i) => (
@@ -95,27 +108,31 @@ const Home = () => {
         <motion.div 
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={horizontalVariants}
           className="text-center mb-16"
         >
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 flex items-center justify-center"
             variants={floatingVariants}
             initial="initial"
             animate="animate"
           >
-            Professor Yashpal Chopra 
+            <FaRobot className="mr-4 text-blue-400" /> 
+            Yashpal Chopra
+            <FaMicrochip className="ml-4 text-blue-400" />
           </motion.h1>
           
           <motion.p 
-            className="text-xl italic mb-6 text-indigo-200"
+            className="text-xl italic mb-6 text-indigo-200 flex items-center justify-center"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Certified Career Counselor || Freelancer || Assistant Professor by Profession || Diehard Mechanical Engg. || Entrepreneur by Choice || Nature Lover
+            <FaBrain className="mr-2" />
+            Certified Career Counselor II Entrepreneur by Choice II Robotist II Designer II Diehard Mechanical Engg. II Assistant Professor by Choice II Nature lover.
+            <GiMechanicalArm className="ml-2" />
           </motion.p>
           
           <motion.div
@@ -127,7 +144,7 @@ const Home = () => {
             <motion.img
               src="/fotor-2025032912356.png"
               alt="Professor Yashpal Chopra"
-              className="rounded-full w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 shadow-lg border-4 border-white"
+              className="rounded-full w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 shadow-lg border-4 border-blue-400"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
@@ -141,21 +158,21 @@ const Home = () => {
             className="space-y-4"
           >
             <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-              With over 20 years of teaching experience, Professor Yashpal Chopra is a distinguished educator at
-              <strong> Dr. Akhilesh Das Gupta Institute of Technology</strong>. His passion for teaching and mentorship has inspired
-              countless students to excel in the field of technology and engineering.
+            Yashpal Chopra is the Founder and CEO of the <strong>Career Margdarshak</strong>  - the most affordable Ed-tech Platform, which provides Counselling services, webinars, workshop in the domain of career passion and success. Mr. Chopra holds Bachler's, Masters and Doctorate* in Engineering disciplines from the prestigious universities of India. He also holds a Master of Business Administration degree from <strong> Deen Bandu Chotu Ram University of Science and Technology (DCRUST), Haryana.</strong>
             </motion.p>
             
             <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-              He specializes in <strong> Automation, Robotics, and Mechanical Engineering.</strong> His multifaceted expertise spans
-              teaching, research guidance, quality management, and student counseling, making him a transformative
-              figure in technical education.
+           <strong>Yashpal Chopra</strong>, is a dedicated academician and researcher with over <strong> 13 years of experience</strong> in the field of <strong>Mechanical Engineering and Automation & Robotics. </strong>   He specializes in guiding engineering minds, innovating through research, and contributing to curriculum development.
             </motion.p>
             
             <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-              With a track record of publishing multiple research papers and mentoring students in national-level competitions,
-              he continues to shape the future of technology with his unparalleled dedication.
-              A distinguished academic leader with over 12 years of experience in engineering education and research.
+            His academic journey spans prestigious institutions like <strong> Delhi Technological University, Jagan Nath University, and Maharshi Dayanand University,</strong> where I have served as an Assistant Professor, mentor, and departmental contributor. I'm passionate about fostering curiosity in engineering domains like <strong>Machine Design, Renewable Energy, Robotics, and Advanced Manufacturing.</strong> 
+            </motion.p>
+            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
+            He have mentored numerous student innovations—ranging from <strong>Electric Bikes</strong>  to <strong>Wind-Solar Hybrid Systems</strong> —and published research on topics like <strong> carbon nanotube modeling</strong> and <strong> sustainable power generation.</strong>
+            </motion.p>
+            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
+            With a strong foundation in <strong> academics, industry practices, </strong>and <strong> career counseling,</strong> my goal is to bridge the gap between theoretical learning and real-world application.
             </motion.p>
           </motion.div>
           
@@ -172,7 +189,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <motion.button 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-lg font-semibold rounded-lg shadow-lg"
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
@@ -181,9 +198,11 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
+              <FaRobot />
               <Link to="/about" className="hover:text-gray-300 transition">
                 Learn More
               </Link>
+              <FaMicrochip />
             </motion.button>
           </motion.div>
         </motion.div>
