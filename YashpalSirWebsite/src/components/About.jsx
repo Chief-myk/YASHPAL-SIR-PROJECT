@@ -247,9 +247,9 @@ const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
                 <h2 className="text-2xl font-bold flex items-center">
-                  <RiRobot2Line className="mr-2" /> Professor & Dean
+                  Assistant Professor & Founder of Career Margdarshak.
                 </h2>
-                <p className="text-sm opacity-90 mt-1">Office of Doctoral Studies, DR. Akhilesh Das Gupta Institute Of Technology, Sonipat, Haryana</p>
+                {/* <p className="text-sm opacity-90 mt-1">Office of Doctoral Studies, DR. Akhilesh Das Gupta Institute Of Technology, Sonipat, Haryana</p> */}
               </div>
             </motion.div>
 
@@ -258,7 +258,7 @@ const About = () => {
               className="w-full md:w-2/3 p-8"
             >
               <RoboticSectionHeader icon={<FaRobot />}>
-              ABOUT
+              Biography
               </RoboticSectionHeader>
               <motion.div 
                 variants={container}
