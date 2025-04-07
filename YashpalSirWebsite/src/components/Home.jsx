@@ -158,7 +158,7 @@ const Home = () => {
             className="space-y-4"
           >
             <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-            Yashpal Chopra is the Founder and CEO of the <strong>Career Margdarshak</strong>  - the most affordable Ed-tech Platform, which provides Counselling services, webinars, workshop in the domain of career passion and success. Mr. Chopra holds Bachler's, Masters and Doctorate* in Engineering disciplines from the prestigious universities of India. He also holds a Master of Business Administration degree from <strong> Deen Bandu Chotu Ram University of Science and Technology (DCRUST), Haryana.</strong>
+            Yashpal Chopra is the Founder and CEO of the <strong>Career Margdarshak</strong>  - the most affordable Ed-tech Platform, which provides Counselling services, webinars, workshop in the domain of career passion and success. Mr. Chopra holds Bachler's, Masters and Doctorate in Engineering disciplines from the prestigious universities of India. He also holds a Master of Business Administration degree from <strong> Deen Bandu Chotu Ram University of Science and Technology (DCRUST), Murthal, Haryana.</strong>
             </motion.p>
             
             <motion.p variants={staggerItem} className="text-lg leading-relaxed">

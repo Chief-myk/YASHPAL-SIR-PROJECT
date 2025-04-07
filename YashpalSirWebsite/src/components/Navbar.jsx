@@ -115,9 +115,10 @@ const Navbar = () => {
 const navLinks = [
   { path: "/", label: "Home" },
   { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
+  { path: "/Blogs", label: "Blogs" },
   { path: "/notes", label: "Notes" },
-  { path: "/projects", label: "Projects" }
+  { path: "/projects", label: "Projects" },
+  { path: "/contact", label: "Contact Us" },
 ];
 
 const NavItem = ({ item, currentPath }) => (

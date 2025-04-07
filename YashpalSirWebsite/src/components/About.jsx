@@ -169,6 +169,12 @@ const About = () => {
   ];
 
   const certificates = [
+    { 
+      title: "NCC 'A' Certificate, 1st Haryana Battalion ",
+      // issuer: "NCC",
+      date: "Jan 2007",
+      icon: <FaCertificate className="text-red-600" />
+    },
     {
       title: "Student Guidance Counselor",
       issuer: "IGNOU",
@@ -235,7 +241,7 @@ const About = () => {
               className="relative w-full md:w-1/3 h-85 md:h-auto group"
             >
               <img
-                src="/YsSir.jpg"
+                src="/yssirrr.jpeg"
                 alt="Professor Yashpal Chopra"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -493,9 +499,9 @@ const About = () => {
             <RoboticSectionHeader icon={<FaAward />}>
               Certifications
             </RoboticSectionHeader>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            {/* <p className="text-gray-700 leading-relaxed mb-4">
               NCC 'A' Certificate, 1st Haryana Battalion (Jan 2007)
-            </p>
+            </p> */}
             <ul className="space-y-4">
               {certificates.map((cert, index) => (
                 <motion.li 
