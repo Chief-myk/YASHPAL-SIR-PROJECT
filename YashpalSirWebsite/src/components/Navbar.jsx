@@ -87,7 +87,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop menu */}
-      <ul className="hidden md:flex space-x-2 lg:space-x-4 text-white">
+      <ul className="hidden md:flex space-x-2 lg:space-x-2 text-white">
         {navLinks.map((item) => (
           <NavItem key={item.path} item={item} currentPath={location.pathname} />
         ))}
@@ -96,7 +96,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`fixed inset-0 md:hidden bg-gray-900/95 backdrop-blur-lg z-40 transition-all duration-500 ease-in-out transform ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}>
         <div className="flex flex-col items-center justify-center h-full pt-24">
-          <ul className="flex flex-col space-y-4 text-center w-full px-8 mt-50 bg-gray-900/95 backdrop-blur-lg z-40">
+          <ul className="flex flex-col space-y-4 text-center w-full px-8 mt-120 bg-gray-900/95 backdrop-blur-lg z-40">
             {navLinks.map((item) => (
               <MobileNavItem 
                 key={item.path} 
@@ -118,6 +118,8 @@ const navLinks = [
   { path: "/Blogs", label: "Blogs" },
   { path: "/notes", label: "Notes" },
   { path: "/projects", label: "Projects" },
+  { path: "/services", label: "Services" },
+  { path: "/gallery", label: "Gallery" },
   { path: "/contact", label: "Contact Us" },
 ];
 

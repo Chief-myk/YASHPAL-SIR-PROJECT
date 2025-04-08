@@ -6,6 +6,9 @@ import Home from "./components/Home";
 import Notes from "./components/Notes";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import Services from "./components/Services";
+import Gallery from "./components/Gallery";
+import Blogs from "./components/Blogs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
@@ -48,6 +51,9 @@ function App() {
             <Route path="/notes" element={<Notes />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/emn" element={<Emn />} />
             <Route path="/mpl" element={<Mpl />} />
             <Route path="/emn/unit-1" element={<EmnUnit1 />} />  
