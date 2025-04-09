@@ -258,7 +258,7 @@ const About = () => {
               className="w-full md:w-2/3 p-8"
             >
               <RoboticSectionHeader icon={<FaRobot />}>
-              Biography
+              Bibliography
               </RoboticSectionHeader>
               <motion.div 
                 variants={container}
