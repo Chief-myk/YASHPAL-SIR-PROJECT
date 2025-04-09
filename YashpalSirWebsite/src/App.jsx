@@ -12,6 +12,7 @@ import Blogs from "./components/Blogs";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
+import { Analytics } from "@vercel/analytics/react"
 
 import Emn from "./components/Emn";
 import Mpl from "./components/Mpl";
