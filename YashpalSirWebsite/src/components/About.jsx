@@ -247,7 +247,7 @@ const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
                 <h2 className="text-2xl font-bold flex items-center">
-                  Assistant Professor & Founder of Career Margdarshak.
+                 Founder of Career Margdarshak & Assistant Professor.
                 </h2>
                 {/* <p className="text-sm opacity-90 mt-1">Office of Doctoral Studies, DR. Akhilesh Das Gupta Institute Of Technology, Sonipat, Haryana</p> */}
               </div>
