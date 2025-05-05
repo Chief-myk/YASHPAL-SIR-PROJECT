@@ -1,26 +1,40 @@
-import React, { useState, useRef } from "react";
-import { FiUpload, FiDownload, FiX, FiFile, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import React, { useState, useRef, useEffect } from "react";
+import {
+  FiUpload,
+  FiDownload,
+  FiX,
+  FiFile,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 
 const MplUnit4 = () => {
-  const [pptFiles, setPptFiles] = useState([
-    {
-      name: "unit 1.2 Manufacturing of Plastic component.pptx",
-      url: "/assets/MPL/unit1/unit 1.2 Manufacturing of Plastic component.pptx",
-      // Google Docs Viewer URL
-      previewUrl: `https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + '/assets/MPL/unit1/unit 1.2 Manufacturing of Plastic component.pptx')}&embedded=true`
-    },
-  ]);
-  const [currentPdfIndex, setCurrentPdfIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
 
+  // Unified documents list (PPT + PDF)
+  const [allDocs, setAllDocs] = useState([
+    {
+      name: "unit 4.2 Manufacturing of Plastic component.pptx",
+      type: "ppt",
+      url: "/assets/MPL/unit4/4.2ManufacturingofPlasticcomponent.pptx",
+      previewUrl: `https://docs.google.com/viewer?url=${encodeURIComponent(
+        window.location.origin + "/assets/MPL/unit4/4.2ManufacturingofPlasticcomponent.pptx"
+      )}&embedded=true`,
+    },
+  ]);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Handle file upload (PDFs only)
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
-    const newPdfFiles = files.map(file => ({
+    const newDocs = files.map((file) => ({
       name: file.name,
-      url: URL.createObjectURL(file)
+      type: "pdf",
+      url: URL.createObjectURL(file),
     }));
-    setPdfFiles([...pdfFiles, ...newPdfFiles]);
+    setAllDocs((prev) => [...prev, ...newDocs]);
   };
 
   const handleDragOver = (e) => {
@@ -36,28 +50,31 @@ const MplUnit4 = () => {
     e.preventDefault();
     setIsDragging(false);
     const files = Array.from(e.dataTransfer.files);
-    const newPdfFiles = files.map(file => ({
+    const newDocs = files.map((file) => ({
       name: file.name,
-      url: URL.createObjectURL(file)
+      type: "pdf",
+      url: URL.createObjectURL(file),
     }));
-    setPdfFiles([...pdfFiles, ...newPdfFiles]);
+    setAllDocs((prev) => [...prev, ...newDocs]);
   };
 
-  const removePdf = (index) => {
-    const updatedFiles = pdfFiles.filter((_, i) => i !== index);
-    setPdfFiles(updatedFiles);
-    if (currentPdfIndex >= updatedFiles.length) {
-      setCurrentPdfIndex(Math.max(0, updatedFiles.length - 1));
+  const removeDoc = (index) => {
+    const updated = allDocs.filter((_, i) => i !== index);
+    setAllDocs(updated);
+    if (currentIndex >= updated.length) {
+      setCurrentIndex(Math.max(0, updated.length - 1));
     }
   };
 
-  const nextPdf = () => {
-    setCurrentPdfIndex((prevIndex) => (prevIndex + 1) % pdfFiles.length);
+  const nextDoc = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % allDocs.length);
   };
 
-  const prevPdf = () => {
-    setCurrentPdfIndex((prevIndex) => (prevIndex - 1 + pdfFiles.length) % pdfFiles.length);
+  const prevDoc = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + allDocs.length) % allDocs.length);
   };
+
+  const currentDoc = allDocs[currentIndex];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col items-center p-6">
@@ -67,9 +84,11 @@ const MplUnit4 = () => {
         </h1>
         <p className="text-gray-300 text-center mb-8">Unit 4 - Study Materials</p>
 
-        {/* Upload Area */}
-        {/* <div 
-          className={`mb-8 p-8 border-2 border-dashed rounded-xl text-center transition-all ${isDragging ? 'border-purple-500 bg-gray-800' : 'border-gray-600 bg-gray-800/50'}`}
+        {/* Upload Area (Optional: Uncomment to Enable Upload) */}
+        {/* <div
+          className={`mb-8 p-8 border-2 border-dashed rounded-xl text-center transition-all ${
+            isDragging ? "border-purple-500 bg-gray-800" : "border-gray-600 bg-gray-800/50"
+          }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -77,7 +96,7 @@ const MplUnit4 = () => {
         >
           <FiUpload className="mx-auto text-4xl text-purple-400 mb-4" />
           <h3 className="text-xl font-semibold text-white mb-2">
-            {isDragging ? 'Drop your PDFs here' : 'Upload PDF Files'}
+            {isDragging ? "Drop your PDFs here" : "Upload PDF Files"}
           </h3>
           <p className="text-gray-400 mb-4">
             Drag & drop PDF files here or click to browse
@@ -95,32 +114,38 @@ const MplUnit4 = () => {
           />
         </div> */}
 
-        {pdfFiles.length > 0 ? (
+        {allDocs.length > 0 ? (
           <>
-            {/* PDF Navigation */}
+            {/* Navigation */}
             <div className="flex items-center justify-between mb-4">
               <button
-                onClick={prevPdf}
-                disabled={pdfFiles.length <= 1}
-                className={`p-2 rounded-full ${pdfFiles.length <= 1 ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:bg-gray-700'}`}
+                onClick={prevDoc}
+                disabled={allDocs.length <= 1}
+                className={`p-2 rounded-full ${
+                  allDocs.length <= 1 ? "text-gray-500 cursor-not-allowed" : "text-white hover:bg-gray-700"
+                }`}
               >
                 <FiChevronLeft size={24} />
               </button>
 
               <div className="flex-1 mx-4 overflow-x-auto">
                 <div className="flex space-x-2">
-                  {pdfFiles.map((file, index) => (
+                  {allDocs.map((file, index) => (
                     <div
                       key={index}
-                      onClick={() => setCurrentPdfIndex(index)}
-                      className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-colors ${currentPdfIndex === index ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-colors ${
+                        currentIndex === index
+                          ? "bg-purple-600 text-white"
+                          : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                      }`}
                     >
                       <FiFile className="mr-2" />
                       <span className="truncate max-w-xs">{file.name}</span>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          removePdf(index);
+                          removeDoc(index);
                         }}
                         className="ml-2 text-gray-300 hover:text-white"
                       >
@@ -132,42 +157,49 @@ const MplUnit4 = () => {
               </div>
 
               <button
-                onClick={nextPdf}
-                disabled={pdfFiles.length <= 1}
-                className={`p-2 rounded-full ${pdfFiles.length <= 1 ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:bg-gray-700'}`}
+                onClick={nextDoc}
+                disabled={allDocs.length <= 1}
+                className={`p-2 rounded-full ${
+                  allDocs.length <= 1 ? "text-gray-500 cursor-not-allowed" : "text-white hover:bg-gray-700"
+                }`}
               >
                 <FiChevronRight size={24} />
               </button>
             </div>
 
-            {/* PPT Viewer */}
+            {/* Document Viewer */}
             <div className="w-full h-[65vh] bg-gray-800 rounded-xl overflow-hidden shadow-xl">
               <iframe
-                src={pptFiles[currentPdfIndex]?.previewUrl}
+                src={
+                  currentDoc.type === "ppt"
+                    ? currentDoc.previewUrl
+                    : currentDoc.url
+                }
                 width="100%"
                 height="100%"
                 className="border-none"
-                title={pptFiles[currentPdfIndex]?.name}
+                title={currentDoc.name}
               />
             </div>
 
             {/* Download Button */}
             <div className="mt-6 text-center">
               <a
-                href={pdfFiles[currentPdfIndex]?.url}
-                download={pdfFiles[currentPdfIndex]?.name}
+                href={currentDoc.url}
+                download={currentDoc.name}
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
               >
                 <FiDownload className="mr-2" />
-                Download Current PDF
+                Download Current File
               </a>
             </div>
           </>
         ) : (
           <div className="text-center py-12 bg-gray-800/50 rounded-xl">
             <FiFile className="mx-auto text-5xl text-gray-500 mb-4" />
-            <h3 className="text-xl font-medium text-gray-400">No PDF files uploaded yet</h3>
-            <p className="text-gray-500">Upload some PDFs to get started</p>
+            <h3 className="text-xl font-medium text-gray-400">
+              No documents available yet
+            </h3>
           </div>
         )}
       </div>

@@ -188,8 +188,9 @@ const Home = () => {
             }}
             viewport={{ once: true }}
           >
+            <Link to="/about" className="hover:text-gray-300 transition">
             <motion.button 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2"
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
@@ -199,11 +200,12 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400 }}
             >
               <FaRobot />
-              <Link to="/about" className="hover:text-gray-300 transition">
+              
                 Learn More
-              </Link>
+            
               <FaMicrochip />
             </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

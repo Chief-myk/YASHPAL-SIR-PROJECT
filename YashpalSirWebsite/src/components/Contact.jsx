@@ -88,10 +88,10 @@ const Contact = () => {
 
   const socialPlatforms = [
     { name: "linkedin", url: "https://www.linkedin.com/in/yashpal-chopra-27ab0340/" },
-    { name: "twitter", url: "#" },
-    { name: "facebook", url: "#" },
-    { name: "instagram", url: "#" },
-    { name: "github", url: "#" }
+    // { name: "twitter", url: "#" },
+    // { name: "facebook", url: "#" },
+    { name: "instagram", url: "https://www.instagram.com/yashpal_chopra/" },
+    // { name: "github", url: "#" }
   ];
 
   const handleChange = (e) => {
@@ -437,6 +437,7 @@ const Contact = () => {
             ))}
           </div>
         </motion.div>
+        <hr className="w-full border-t border-gray-500 my-6 sm:my-8" />
       </div>
     </motion.div>
   );

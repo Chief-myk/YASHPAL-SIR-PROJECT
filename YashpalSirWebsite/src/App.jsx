@@ -24,6 +24,8 @@ import MplUnit1 from "./components/MplUnit1";  // Import the new component
 import MplUnit2 from "./components/MplUnit2";  // Import the new component
 import MplUnit3 from "./components/MplUnit3";  // Import the new component
 import MplUnit4 from "./components/MplUnit4";  // Import the new component
+import Workshop from "./components/Workshop";
+import Egl from "./components/Egl";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -65,6 +67,8 @@ function App() {
             <Route path="/mpl/unit-2" element={<MplUnit2 />} />  
             <Route path="/mpl/unit-3" element={<MplUnit3 />} />  
             <Route path="/mpl/unit-4" element={<MplUnit4 />} />  
+            <Route path="/Workshop" element={<Workshop />} />  
+            <Route path="/egl" element={<Egl/>} />  
           </Routes>
         </main>
         <Footbar />

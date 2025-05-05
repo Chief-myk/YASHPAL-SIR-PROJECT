@@ -19,7 +19,7 @@ const notesData = [
   },
   { 
     title: 'Engineering Graphics Notes', 
-    path: '/graphics',
+    path: '/egl',
     description: 'Fundamentals of engineering drawing and graphics',
     color: 'from-green-500 to-green-700',
     icon: '✏️'

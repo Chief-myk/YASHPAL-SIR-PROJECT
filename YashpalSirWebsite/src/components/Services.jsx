@@ -112,7 +112,7 @@ const Services = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl"
           >
             <img 
-              src="/studenta.avif" 
+              src="/group.jpg" 
               alt="Career Counseling" 
               className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
             />
@@ -127,7 +127,7 @@ const Services = () => {
               Personalized Career Guidance
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Dr. Sanjib Kr. Acharya personally conducts all sessions to help students discover achievable career goals and create perfect success roadmaps. Our services focus on three key verticles:
+             Mr. Yashpal Chopra personally conducts all sessions to help students discover achievable career goals and create perfect success roadmaps. Our services focus on three key verticles:
             </p>
             
             <div className="space-y-4">
