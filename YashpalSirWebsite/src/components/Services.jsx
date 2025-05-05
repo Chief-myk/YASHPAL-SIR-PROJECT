@@ -19,15 +19,15 @@ const Services = () => {
       title: "One-on-One Offline Counseling",
       icon: <FaHandshake className="text-4xl" />,
       duration: "1 Hour 30 mins",
-      price: "₹6,500",
+      price: "₹1,499",
       description: "Personal face-to-face sessions with aptitude tests and detailed reports at our Delhi offices.",
       highlight: "bg-gradient-to-r from-purple-500 to-blue-500"
     },
     {
       title: "Online Video Counseling",
       icon: <FaVideo className="text-4xl" />,
-      duration: "1 Hour 15 mins",
-      price: "₹5,500",
+      duration: "30 minutes",
+      price: "₹449",
       description: "Virtual sessions via Zoom/Google Meet with full digital report and follow-up support.",
       highlight: "bg-gradient-to-r from-cyan-400 to-blue-600"
     },
@@ -35,15 +35,15 @@ const Services = () => {
       title: "Career Workshop",
       icon: <FaChalkboardTeacher className="text-4xl" />,
       duration: "2 Hours",
-      price: "₹8,500",
+      price: "₹4,999",
       description: "Group workshops with interactive activities and Q&A sessions.",
       highlight: "bg-gradient-to-r from-pink-500 to-purple-600"
     },
     {
-      title: "Quick Doubt Solving",
+      title: "Online Quick Doubt Solving",
       icon: <FaComments className="text-4xl" />,
-      duration: "15 mins",
-      price: "₹1,500",
+      duration: "Depends",
+      price: "₹49 Per Que",
       description: "Instant video consultation for specific career-related queries.",
       highlight: "bg-gradient-to-r from-yellow-400 to-orange-500"
     },
@@ -56,10 +56,10 @@ const Services = () => {
       highlight: "bg-gradient-to-r from-green-400 to-cyan-600"
     },
     {
-      title: "Parent Guidance",
+      title: "Offline Parent Guidance",
       icon: <FaHandshake className="text-4xl" />,
       duration: "1 Hour",
-      price: "₹4,500",
+      price: "₹2,499",
       description: "Special sessions for parents to understand career pathways.",
       highlight: "bg-gradient-to-r from-red-400 to-pink-600"
     }
