@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaHandshake, 
-  FaCalendarAlt, 
-  FaChalkboardTeacher, 
-  FaVideo, 
-  FaComments, 
+import {
+  FaHandshake,
+  FaCalendarAlt,
+  FaChalkboardTeacher,
+  FaVideo,
+  FaComments,
   FaRegLightbulb,
   FaGraduationCap,
   FaUserTie,
@@ -70,7 +70,7 @@ const Services = () => {
       {/* Hero Section */}
       <div className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -98,7 +98,7 @@ const Services = () => {
 
       {/* About Services Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-12 items-center"
           initial="hidden"
           whileInView="visible"
@@ -107,19 +107,30 @@ const Services = () => {
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
           }}
         >
-          <motion.div 
+          <motion.div
             variants={{ hidden: { x: -50 }, visible: { x: 0 } }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            className="relative rounded-2xl overflow-hidden shadow-2xl group"
           >
-            <img 
-              src="/group.jpg" 
-              alt="Career Counseling" 
-              className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            <motion.img
+              src="/group.jpg"
+              alt="Career Counseling"
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+            <motion.div
+              className="absolute bottom-0 left-0 p-6 text-white"
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <h3 className="text-xl font-semibold">Personalized Sessions</h3>
+              <p className="text-sm opacity-90">One-on-one guidance with expert counselors</p>
+            </motion.div>
           </motion.div>
-
-          <motion.div 
+          <motion.div
             variants={{ hidden: { x: 50 }, visible: { x: 0 } }}
             className="space-y-6"
           >
@@ -127,9 +138,9 @@ const Services = () => {
               Personalized Career Guidance
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed">
-             Mr. Yashpal Chopra personally conducts all sessions to help students discover achievable career goals and create perfect success roadmaps. Our services focus on three key verticles:
+              Mr. Yashpal Chopra personally conducts all sessions to help students discover achievable career goals and create perfect success roadmaps. Our services focus on three key verticles:
             </p>
-            
+
             <div className="space-y-4">
               <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
                 <FaSchool className="text-cyan-400 text-2xl mt-1 flex-shrink-0" />
@@ -138,7 +149,7 @@ const Services = () => {
                   <p className="text-gray-300">From Grade 9th to 12th</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
                 <FaGraduationCap className="text-cyan-400 text-2xl mt-1 flex-shrink-0" />
                 <div>
@@ -146,7 +157,7 @@ const Services = () => {
                   <p className="text-gray-300">Students pursuing or completed higher education</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors">
                 <FaUserTie className="text-cyan-400 text-2xl mt-1 flex-shrink-0" />
                 <div>
@@ -159,72 +170,135 @@ const Services = () => {
         </motion.div>
       </div>
 
-      {/* Methodology Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-        <motion.div 
-          className="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8">
-            Our Methodology
-          </h2>
-          
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="space-y-6 text-gray-300">
-              <p className="leading-relaxed">
-                Our approach combines digital aptitude testing with comprehensive clinical examination, analyzing academic/non-academic achievements, personality traits, interests, and family background.
-              </p>
-              
-              <div className="p-4 bg-gray-700 rounded-xl">
-                <h3 className="text-xl font-semibold text-white mb-3">Offline Sessions</h3>
-                <p>
-                  Conducted at our New Delhi offices (East of Kailash & Dwarka) with prior appointment. 
-                  Each session lasts 90-120 minutes including detailed report preparation.
-                </p>
-              </div>
-              
-              <div className="p-4 bg-gray-700 rounded-xl">
-                <h3 className="text-xl font-semibold text-white mb-3">Online Sessions</h3>
-                <p>
-                  Available via Zoom/Google Meet for remote participants. Includes 12 months of follow-up 
-                  support and expert guidance.
-                </p>
-              </div>
-            </div>
 
-            <div className="space-y-6 text-gray-300">
-              <div className="p-4 bg-gray-700 rounded-xl">
-                <h3 className="text-xl font-semibold text-white mb-3">Quick Doubt Solving</h3>
-                <p>
-                  15-minute video consultations for specific queries on subjects, exams, or career choices 
-                  with immediate expert validation.
-                </p>
+      <div>
+        <div className="max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            }}
+          >
+            <motion.div
+              variants={{ hidden: { x: -50 }, visible: { x: 0 } }}
+              className="relative rounded-2xl overflow-hidden shadow-xl h-64 md:h-80"
+            >
+              <img
+                src="ab.jpeg"
+                alt="Methodology"
+                className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 text-white">
+                <h3 className="font-semibold">Our Assessment Process</h3>
               </div>
-              
-              <div className="p-4 bg-gray-700 rounded-xl">
-                <h3 className="text-xl font-semibold text-white mb-3">Workshops & Webinars</h3>
-                <p>
-                  90-minute group sessions for institutions featuring interactive lectures, presentations, 
-                  and Q&A discussions.
+            </motion.div>
+
+            <motion.div
+              variants={{ hidden: { x: 50 }, visible: { x: 0 } }}
+              className="relative rounded-2xl overflow-hidden shadow-xl h-64 md:h-80"
+            >
+              <img
+                src="bc.jpeg"
+                alt="Workshops"
+                className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+          >
+            <img
+              src="de.jpeg"
+              alt="Success Stories"
+              className="w-full h-full object-fill max-h-96"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6 text-white">
+              <h3 className="text-xl font-semibold">Proven Success</h3>
+              <p className="text-sm opacity-90">Helping students achieve their career goals</p>
+            </div>
+          </motion.div>
+        </div>
+        {/* Methodology Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+          <motion.div
+            className="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8">
+              Our Methodology
+            </h2>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="space-y-6 text-gray-300">
+                <p className="leading-relaxed">
+                  Our approach combines digital aptitude testing with comprehensive clinical examination, analyzing academic/non-academic achievements, personality traits, interests, and family background.
                 </p>
+
+                <div className="p-4 bg-gray-700 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-3">Offline Sessions</h3>
+                  <p>
+                    Conducted at our New Delhi offices (East of Kailash & Dwarka) with prior appointment.
+                    Each session lasts 90-120 minutes including detailed report preparation.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-gray-700 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-3">Online Sessions</h3>
+                  <p>
+                    Available via Zoom/Google Meet for remote participants. Includes 12 months of follow-up
+                    support and expert guidance.
+                  </p>
+                </div>
               </div>
-              
-              <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-400/20">
-                <h3 className="text-xl font-semibold text-white mb-3">Post-Session Support</h3>
-                <p>
-                  All clients receive written reports and 12 months of ongoing support for implementation 
-                  and follow-up guidance.
-                </p>
+
+              <div className="space-y-6 text-gray-300">
+                <div className="p-4 bg-gray-700 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-3">Quick Doubt Solving</h3>
+                  <p>
+                    15-minute video consultations for specific queries on subjects, exams, or career choices
+                    with immediate expert validation.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-gray-700 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-3">Workshops & Webinars</h3>
+                  <p>
+                    90-minute group sessions for institutions featuring interactive lectures, presentations,
+                    and Q&A discussions.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-400/20">
+                  <h3 className="text-xl font-semibold text-white mb-3">Post-Session Support</h3>
+                  <p>
+                    All clients receive written reports and 12 months of ongoing support for implementation
+                    and follow-up guidance.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
+
+
+
 
       {/* Services Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           animate="visible"
@@ -264,6 +338,7 @@ const Services = () => {
           ))}
         </motion.div>
       </div>
+      
 
       {/* Process Section */}
       <div className="relative py-20 bg-gradient-to-br from-gray-800 to-gray-900">
@@ -287,7 +362,7 @@ const Services = () => {
               { title: "Roadmap Creation", desc: "Personalized career strategy" },
               { title: "Ongoing Support", desc: "12-month mentorship program" }
             ].map((step, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -313,7 +388,7 @@ const Services = () => {
       {/* Workshop CTA */}
       <div className="relative py-20 bg-gradient-to-r from-cyan-900/50 to-blue-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             className="inline-block bg-white/5 rounded-2xl p-8 backdrop-blur-lg border border-cyan-400/20"

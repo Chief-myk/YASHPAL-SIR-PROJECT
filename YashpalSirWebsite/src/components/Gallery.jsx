@@ -3,13 +3,10 @@ import { motion } from 'framer-motion';
 import { FaImages } from 'react-icons/fa';
 
 const Gallery = () => {
-  const imageUrls = [
-    'https://picsum.photos/id/1015/600/400',
-    'https://picsum.photos/id/1025/600/400',
-    'https://picsum.photos/id/1039/600/400',
-    'https://picsum.photos/id/1050/600/400',
-    'https://picsum.photos/id/1062/600/400',
-    'https://picsum.photos/id/1074/600/400',
+   const imageUrls = [
+    "/gallery.jpeg",
+    "nat.jpg",
+    "natt.avif",
   ];
 
   return (
