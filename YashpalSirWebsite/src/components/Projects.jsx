@@ -24,7 +24,7 @@ const projects = [
     year: "2025",
     description: "An innovative solution for plastic waste management with advanced sorting and processing capabilities.",
     images: ["/q.jpeg"],
-    video: "/polymorphs(clean audio)2.mp4",
+    video: "/p.mp4",
     tags: ["Sustainability", "Automation", "Eco-friendly"]
   },
   {
