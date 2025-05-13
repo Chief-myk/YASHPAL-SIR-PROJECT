@@ -27,6 +27,8 @@ import MplUnit4 from "./components/MplUnit4";  // Import the new component
 import Workshop from "./components/Workshop";
 import Egl from "./components/Egl";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -46,6 +48,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-gray-50">
+        <ScrollToTop/>
         <Navbar />
         <main className="flex-grow transition-all duration-300">
           <Routes>
