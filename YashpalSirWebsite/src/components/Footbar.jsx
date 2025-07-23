@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import { Link, useLocation } from "react-router-dom";
 
 const Footbar = () => {
   const socialPlatforms = [
@@ -84,13 +85,13 @@ const Footbar = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.url}
+                  <Link
+                    to={link.url}
                     className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
                   >
                     <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-1"></span>
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
