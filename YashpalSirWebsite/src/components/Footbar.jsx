@@ -3,11 +3,11 @@ import { supabase } from '../supabaseClient';
 
 const Footbar = () => {
   const socialPlatforms = [
-    { name: "linkedin", url: "https://www.linkedin.com/in/mayankmittal1311/" },
-    { name: "twitter", url: "https://x.com/MayankMittal06" },
-    { name: "facebook", url: "https://www.facebook.com/mayank.mittal.1069020" },
-    { name: "instagram", url: "https://www.instagram.com/mayankmittal.1306/?hl=en" },
-    { name: "github", url: "https://github.com/Chief-myk" }
+    { name: "linkedin", url: "https://www.linkedin.com/in/yashpal-chopra-27ab0340/" },
+    // { name: "twitter", url: "https://x.com/MayankMittal06" },
+    { name: "facebook", url: "https://www.facebook.com/yashpalchopraa" },
+    { name: "instagram", url: "https://www.instagram.com/yashpal_chopra" },
+    // { name: "github", url: "https://github.com/Chief-myk" }
   ];
 
   const quickLinks = [
@@ -26,33 +26,33 @@ const Footbar = () => {
         // First try to increment the count
         const { data: incrementData, error: incrementError } = await supabase
           .rpc('increment_visits', { row_id: 1 });
-        
-          if (incrementError) {
-            console.error("Increment error:", incrementError);
-          
-            // Check if the row with id=1 exists first
-            const { data: existingRow, error: fetchExistingError } = await supabase
+
+        if (incrementError) {
+          console.error("Increment error:", incrementError);
+
+          // Check if the row with id=1 exists first
+          const { data: existingRow, error: fetchExistingError } = await supabase
+            .from('visits')
+            .select('id')
+            .eq('id', 1)
+            .single();
+
+          if (!existingRow) {
+            const { error: insertError } = await supabase
               .from('visits')
-              .select('id')
-              .eq('id', 1)
-              .single();
-          
-            if (!existingRow) {
-              const { error: insertError } = await supabase
-                .from('visits')
-                .insert([{ id: 1, count: 1 }]);
-          
-              if (insertError) {
-                console.error("Insert error:", insertError);
-                return;
-              }
-              setCount(1);
-            } else {
-              console.log("Row already exists, skipping insert.");
+              .insert([{ id: 1, count: 1 }]);
+
+            if (insertError) {
+              console.error("Insert error:", insertError);
+              return;
             }
-            return;
+            setCount(1);
+          } else {
+            console.log("Row already exists, skipping insert.");
           }
-          
+          return;
+        }
+
         // If increment succeeded, fetch the updated count
         const { data: fetchData, error: fetchError } = await supabase
           .from('visits')
@@ -99,10 +99,10 @@ const Footbar = () => {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Mittal Associates
+              Yashpal Chopra
             </h3>
             <p className="text-gray-300">
-              Full Stack Developer creating beautiful, functional websites and applications for businesses and individuals.
+              Professor, entrepreneur, and founder of Career Margdarshak and AAIRO Society, guiding students through career counseling and inspiring innovation in AI and robotics.
             </p>
             <div className="flex space-x-4">
               {socialPlatforms.map((platform) => (
@@ -134,20 +134,20 @@ const Footbar = () => {
                 <svg className="w-5 h-5 text-blue-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:mayankixa17@gmail.com" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  mayankixa17@gmail.com
+                <a href="mailto: ypschopra@gmail.com" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  ypschopra@gmail.com
                 </a>
               </div>
               <div className="flex items-start">
                 <svg className="w-5 h-5 text-blue-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+919990538802" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  +91 9990538802
+                <a href="tel:+919992192456" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  +91 9992192456
                 </a>
               </div>
               <p className="text-gray-400 mt-3">
-                Feel free to contact me for professional website or app development.
+                Feel free to contact me for Personal Guidance.
               </p>
             </div>
           </address>
@@ -156,8 +156,8 @@ const Footbar = () => {
         {/* Footer bottom */}
         <div className="border-t border-gray-700 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Mittal Associates. All rights reserved.
+            <p className="text-gray-400 text-sm font-medium">
+              © {new Date().getFullYear()} Mittal Associates • mayankixa17@gmail.com • +91 9990538802
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Privacy Policy</a>
@@ -165,7 +165,7 @@ const Footbar = () => {
               <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Sitemap</a>
             </div>
           </div>
-          <p className="text-center text-gray-600 text-xs mt-4">
+          <p className="text-center text-gray-600 text-xs mt-4 lg:mt-3 2xl:mt-0">
             Made with ❤️ using React.js and Tailwind CSS
           </p>
         </div>
