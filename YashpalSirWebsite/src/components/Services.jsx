@@ -68,7 +68,7 @@ const Services = () => {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 to-gray-950 relative overflow-hidden">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+      <div className="relative pt-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -138,7 +138,7 @@ const Services = () => {
               Personalized Career Guidance
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Mr. Yashpal Chopra personally conducts all sessions to help students discover achievable career goals and create perfect success roadmaps. Our services focus on three key verticles:
+             Mr. Yashpal Chopra personally conducts all sessions to help students and professionals identify achievable career goals and develop clear, structured success roadmaps. Our guidance framework is focused on three key verticals: 
             </p>
 
             <div className="space-y-4">
@@ -230,67 +230,88 @@ const Services = () => {
           </motion.div>
         </div>
         {/* Methodology Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-          <motion.div
-            className="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8">
-              Our Methodology
-            </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+  <motion.div
+    className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 shadow-2xl border border-gray-700"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+    <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-8 flex items-center gap-2">
+      <span className="text-cyan-400 text-4xl">⚙️</span>
+      Our Methodology
+      <span className="h-0.5 flex-1 bg-gradient-to-r from-cyan-400 to-blue-600 ml-4"></span>
+    </h2>
 
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="space-y-6 text-gray-300">
-                <p className="leading-relaxed">
-                  Our approach combines digital aptitude testing with comprehensive clinical examination, analyzing academic/non-academic achievements, personality traits, interests, and family background.
-                </p>
+    <div className="grid gap-8 md:grid-cols-2">
+      <div className="space-y-6 text-gray-300">
+        <p className="leading-relaxed text-lg">
+          Our approach integrates digital aptitude assessments with a comprehensive evaluation process, considering academic and non-academic achievements, personality traits, interests, and family background to provide well-rounded and personalized career guidance. 
+        </p>
+        <p className="leading-relaxed text-lg">
+          We follow a multi-format counselling model to ensure accessibility and effectiveness: 
+        </p>
 
-                <div className="p-4 bg-gray-700 rounded-xl">
-                  <h3 className="text-xl font-semibold text-white mb-3">Offline Sessions</h3>
-                  <p>
-                    Conducted at our New Delhi offices (East of Kailash & Dwarka) with prior appointment.
-                    Each session lasts 90-120 minutes including detailed report preparation.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-gray-700 rounded-xl">
-                  <h3 className="text-xl font-semibold text-white mb-3">Online Sessions</h3>
-                  <p>
-                    Available via Zoom/Google Meet for remote participants. Includes 12 months of follow-up
-                    support and expert guidance.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6 text-gray-300">
-                <div className="p-4 bg-gray-700 rounded-xl">
-                  <h3 className="text-xl font-semibold text-white mb-3">Quick Doubt Solving</h3>
-                  <p>
-                    15-minute video consultations for specific queries on subjects, exams, or career choices
-                    with immediate expert validation.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-gray-700 rounded-xl">
-                  <h3 className="text-xl font-semibold text-white mb-3">Workshops & Webinars</h3>
-                  <p>
-                    90-minute group sessions for institutions featuring interactive lectures, presentations,
-                    and Q&A discussions.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-400/20">
-                  <h3 className="text-xl font-semibold text-white mb-3">Post-Session Support</h3>
-                  <p>
-                    All clients receive written reports and 12 months of ongoing support for implementation
-                    and follow-up guidance.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div className="p-5 bg-gray-700/50 rounded-xl hover:bg-gray-700 transition-all duration-300 border-l-4 border-cyan-400">
+          <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <span className="text-cyan-400">🎯</span> One-on-One Offline Counseling Sessions
+          </h3>
+          <p className="leading-relaxed mb-3">
+            Sessions are conducted at a mutually convenient location, such as your place or a nearby café, with prior appointment. Each session typically lasts 45–60 minutes and includes a detailed assessment along with a personalized report.
+          </p>
+          <p className="font-bold text-cyan-400 mt-2">
+            Students: ₹1499/-
+          </p>
+          <p className="font-bold text-cyan-400">
+            Students along with parents: ₹2499/-
+          </p>
         </div>
+
+        <div className="p-5 bg-gray-700/50 rounded-xl hover:bg-gray-700 transition-all duration-300 border-l-4 border-blue-400">
+          <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <span className="text-blue-400">💻</span> Online video Counseling Sessions
+          </h3>
+          <p className="leading-relaxed mb-3">
+            Sessions for remote participants are conducted via Zoom or Google Meet with prior scheduling. Each session typically lasts 45–60 minutes and includes a comprehensive assessment along with a personalized report. 
+          </p>
+          <p className="font-bold text-blue-400">₹499/-</p>
+        </div>
+      </div>
+
+      <div className="space-y-6 text-gray-300">
+        <div className="p-5 bg-gray-700/50 rounded-xl hover:bg-gray-700 transition-all duration-300 border-l-4 border-purple-400">
+          <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <span className="text-purple-400">⚡</span> Quick Doubt Solving
+          </h3>
+          <p className="leading-relaxed mb-3">
+            Short 5-minute video consultations are available for specific queries related to subjects, exams, or career decisions, offering quick clarity and immediate expert validation. 
+          </p>
+          <p className="font-bold text-purple-400">₹99 per Question</p>
+        </div>
+
+        <div className="p-5 bg-gray-700/50 rounded-xl hover:bg-gray-700 transition-all duration-300 border-l-4 border-green-400">
+          <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <span className="text-green-400">🎓</span> Workshops & Webinars
+          </h3>
+          <p className="leading-relaxed mb-3">
+            60-minute group sessions for institutions featuring interactive lectures, structured presentations, and engaging Q & A discussions to address student queries and career insights. 
+          </p>
+          <p className="font-bold text-green-400">₹4999/-</p>
+        </div>
+
+        <div className="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-400/30 hover:shadow-lg transition-all duration-300">
+          <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+            <span className="text-cyan-400">✨</span> Post-Session Support
+          </h3>
+          <p className="leading-relaxed mb-3">
+            All clients receive a detailed written report along with 12 months of ongoing support, including implementation assistance and follow-up guidance to ensure effective execution of their career roadmap 
+          </p>
+          <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 text-lg">₹14999/-</p>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+</div>
       </div>
 
 
@@ -341,49 +362,7 @@ const Services = () => {
       
 
       {/* Process Section */}
-      <div className="relative py-20 bg-gradient-to-br from-gray-800 to-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 mb-4">
-              Our Scientific Approach
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Combining digital assessment with personalized clinical evaluation for optimal career mapping
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8 relative">
-            {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-cyan-400 to-blue-600 -translate-x-1/2" />
-
-            {[
-              { title: "Digital Assessment", desc: "Comprehensive aptitude testing" },
-              { title: "Clinical Evaluation", desc: "In-depth personal analysis" },
-              { title: "Roadmap Creation", desc: "Personalized career strategy" },
-              { title: "Ongoing Support", desc: "12-month mentorship program" }
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="relative bg-gray-700 rounded-2xl p-6 text-center group"
-              >
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-cyan-400 rounded-full flex items-center justify-center text-gray-900 font-bold">
-                  {index + 1}
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                <p className="text-gray-300">{step.desc}</p>
-                {index < 3 && (
-                  <div className="hidden md:block absolute -right-8 top-1/2 -translate-y-1/2 text-cyan-400 opacity-50 group-hover:opacity-100 transition-opacity">
-                    <FiArrowRight className="text-3xl" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/*  */}
 
       {/* Workshop CTA */}
       <div className="relative py-20 bg-gradient-to-r from-cyan-900/50 to-blue-900/50">

@@ -1,22 +1,22 @@
 // components/Home.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaRobot, FaMicrochip, FaCogs, FaBrain } from 'react-icons/fa';
-import { GiMechanicalArm } from 'react-icons/gi';
+import { FaRobot, FaMicrochip, FaCogs, FaBrain } from "react-icons/fa";
+import { GiMechanicalArm } from "react-icons/gi";
 
 const Home = () => {
   // Animation variants
   const floatingVariants = {
     initial: { y: -10 },
-    animate: { 
+    animate: {
       y: [0, -15, 0],
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   const horizontalVariants = {
@@ -27,15 +27,15 @@ const Home = () => {
       transition: {
         type: "spring",
         bounce: 0.4,
-        duration: 1.5
-      }
-    }
+        duration: 1.5,
+      },
+    },
   };
 
   const flipVariants = {
-    offscreen: { 
+    offscreen: {
       rotateY: 90,
-      opacity: 0 
+      opacity: 0,
     },
     onscreen: {
       rotateY: 0,
@@ -44,9 +44,9 @@ const Home = () => {
         type: "spring",
         stiffness: 100,
         damping: 10,
-        duration: 1
-      }
-    }
+        duration: 1,
+      },
+    },
   };
 
   const staggerContainer = {
@@ -54,14 +54,14 @@ const Home = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const staggerItem = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+    show: { opacity: 1, y: 0 },
   };
 
   return (
@@ -92,49 +92,56 @@ const Home = () => {
             animate={{
               y: [0, Math.random() * 100 - 50],
               x: [0, Math.random() * 100 - 50],
-              opacity: [0.1, 0.2, 0.1]
+              opacity: [0.1, 0.2, 0.1],
             }}
             transition={{
               duration: Math.random() * 10 + 10,
               repeat: Infinity,
               repeatType: "reverse",
-              delay: Math.random() * 5
+              delay: Math.random() * 5,
             }}
           />
         ))}
       </div>
 
       <div className="max-w-4xl text-center relative z-10">
-        <motion.div 
+        <motion.div
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.1 }}
           variants={horizontalVariants}
           className="text-center mb-16"
         >
-          <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 flex items-center justify-center"
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent"
             variants={floatingVariants}
             initial="initial"
             animate="animate"
           >
-            <FaRobot className="mr-4 text-blue-400" /> 
+            <FaRobot className="mr-4 text-blue-400" />
             Yashpal Chopra
             <FaMicrochip className="ml-4 text-blue-400" />
           </motion.h1>
-          
-          <motion.p 
-            className="text-xl italic mb-6 text-indigo-200 flex items-center justify-center"
+
+          <motion.p
+            className="text-xl italic mb-6 text-indigo-200 flex items-center justify-center flex-wrap gap-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <FaBrain className="mr-2" />
-            Certified Career Counselor II Entrepreneur by Choice II Robotist II Designer II Diehard Mechanical Engg. II Assistant Professor by Choice II Nature lover.
+            <span className="font-semibold text-indigo-100">Certified Career Counselor</span> II 
+            <span className="font-semibold text-indigo-100">Entrepreneur</span> II 
+            <span className="font-semibold text-indigo-100">Youtuber</span> II 
+            <span className="font-semibold text-indigo-100">Nature lover</span> II 
+            <span className="font-semibold text-indigo-100">Assistant Professor</span> II 
+            <span className="font-semibold text-indigo-100">Diehard Mechanical Engineering</span> II 
+            <span className="font-semibold text-indigo-100">Designer</span> II 
+            <span className="font-semibold text-indigo-100">Robotist</span>
             <GiMechanicalArm className="ml-2" />
           </motion.p>
-          
+
           <motion.div
             initial="offscreen"
             whileInView="onscreen"
@@ -149,7 +156,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 300 }}
             />
           </motion.div>
-          
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -157,54 +164,111 @@ const Home = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-            Yashpal Chopra is the Founder and CEO of the <strong>Career Margdarshak</strong>  - the most affordable Ed-tech Platform, which provides Counselling services, webinars, workshop in the domain of career passion and success. Mr. Chopra holds Bachler's, Masters and Doctorate in Engineering disciplines from the prestigious universities of India. He also holds a Master of Business Administration degree from <strong> Deen Bandu Chotu Ram University of Science and Technology (DCRUST), Murthal, Haryana.</strong>
+            <motion.p
+              variants={staggerItem}
+              className="text-lg leading-relaxed"
+            >
+              <span className="font-bold text-indigo-300">Yashpal Chopra</span> is a dedicated educator, researcher, and mentor
+              with over <span className="font-bold text-blue-300">15 years</span> of academic and industrial experience across
+              engineering, robotics, artificial intelligence, and management. He
+              has been associated with reputed institutions such as 
+              <span className="font-medium text-indigo-200"> Delhi Technological University</span>, 
+              <span className="font-medium text-indigo-200"> Jagannath University</span>, and
+              premier institute affiliated with 
+              <span className="font-medium text-indigo-200"> Guru Gobind Singh Indraprastha University</span>,
+              and holds a <span className="font-bold text-blue-300">Post-Graduate Certification in Robotics & AI</span> from 
+              <span className="font-medium text-indigo-200"> Indian Institute of Technology Bhubaneswar</span>. He is also a
+              member of the <span className="font-medium text-indigo-200">International Society for Engineers</span>.
             </motion.p>
-            
-            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-           <strong>Yashpal Chopra</strong>, is a dedicated academician and researcher with over <strong> 13 years of experience</strong> in the field of <strong>Mechanical Engineering and Automation & Robotics. </strong>   He specializes in guiding engineering minds, innovating through research, and contributing to curriculum development.
+
+            <motion.p
+              variants={staggerItem}
+              className="text-lg leading-relaxed"
+            >
+              Currently serving as an <span className="font-bold text-indigo-300">Assistant Professor</span>, he is actively
+              involved in teaching, research, and student mentorship, with a
+              focus on <span className="font-medium text-blue-300">automation</span>, 
+              <span className="font-medium text-blue-300"> advanced mechanical systems</span>, and
+              <span className="font-medium text-blue-300"> real-world innovation</span>. He is also the 
+              <span className="font-bold text-indigo-300"> Founder and Faculty Coordinator</span> of the 
+              <span className="font-medium text-indigo-200"> AAIRO Society</span>, where he leads technical events, workshops, and
+              student development initiatives.
             </motion.p>
-            
-            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-            His academic journey spans prestigious institutions like <strong> Delhi Technological University, Jagan Nath University, and Maharshi Dayanand University,</strong> where I have served as an Assistant Professor, mentor, and departmental contributor. I'm passionate about fostering curiosity in engineering domains like <strong>Machine Design, Renewable Energy, Robotics, and Advanced Manufacturing.</strong> 
-            </motion.p>
-            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-            He have mentored numerous student innovations—ranging from <strong>Electric Bikes</strong>  to <strong>Wind-Solar Hybrid Systems</strong> —and published research on topics like <strong> carbon nanotube modeling</strong> and <strong> sustainable power generation.</strong>
-            </motion.p>
-            <motion.p variants={staggerItem} className="text-lg leading-relaxed">
-            With a strong foundation in <strong> academics, industry practices, </strong>and <strong> career counseling,</strong> my goal is to bridge the gap between theoretical learning and real-world application.
+
+            <motion.p
+              variants={staggerItem}
+              className="text-lg leading-relaxed"
+            >
+              Through this platform, he shares <span className="font-medium text-blue-300">academic resources</span>,
+              <span className="font-medium text-blue-300"> research insights</span>, and
+              <span className="font-medium text-blue-300"> career guidance</span> to help students bridge the gap
+              between theoretical learning and practical application while
+              fostering innovation and long-term professional growth. It also
+              serves as a comprehensive space that brings together his teaching
+              materials, research work, career counselling services,
+              photography, and more—creating a single destination for learners,
+              professionals, and curious minds.
             </motion.p>
           </motion.div>
-          
-          <motion.div 
-            className="mt-8"
+
+          <motion.div className="flex justify-center items-center my-10 gap-16 flex-wrap">
+            <motion.div className="bg-gradient-to-br from-sky-900 to-indigo-900 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 min-w-[180px]">
+              <strong className="text-3xl text-blue-300 block">15+</strong>
+              <h3 className="text-indigo-200 mt-2">Years of experience</h3>
+            </motion.div>
+            <motion.div className="bg-gradient-to-br from-sky-900 to-indigo-900 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 min-w-[180px]">
+              <strong className="text-3xl text-blue-300 block">5+</strong>
+              <h3 className="text-indigo-200 mt-2">Institutions served</h3>
+            </motion.div>
+            <motion.div className="bg-gradient-to-br from-sky-900 to-indigo-900 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 min-w-[180px]">
+              <strong className="text-3xl text-blue-300 block">6+</strong>
+              <h3 className="text-indigo-200 mt-2">Research publications</h3>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="mt-8 flex gap-20 justify-center flex-wrap"
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ 
+            transition={{
               type: "spring",
               stiffness: 100,
               damping: 10,
-              delay: 0.3
+              delay: 0.3,
             }}
             viewport={{ once: true }}
           >
             <Link to="/about" className="hover:text-gray-300 transition">
-            <motion.button 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                y: -3
-              }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <FaRobot />
-              
-                Learn More
-            
-              <FaMicrochip />
-            </motion.button>
+              <motion.button
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+                  y: -3,
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <FaRobot />
+                Explore My Work
+                <FaMicrochip />
+              </motion.button>
+            </Link>
+            <Link to="/services" className="hover:text-gray-300 transition">
+              <motion.button
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-lg font-semibold rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+                  y: -3,
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <FaRobot />
+                Book a Counselling Session
+                <FaMicrochip />
+              </motion.button>
             </Link>
           </motion.div>
         </motion.div>

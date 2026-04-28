@@ -98,34 +98,46 @@ const Footbar = () => {
           </nav>
 
           {/* About Section */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Yashpal Chopra
-            </h3>
-            <p className="text-gray-300">
-              Professor, entrepreneur, and founder of Career Margdarshak and AAIRO Society, guiding students through career counseling and inspiring innovation in AI and robotics.
-            </p>
-            <div className="flex space-x-4">
-              {socialPlatforms.map((platform) => (
-                <a
-                  key={platform.name}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
-                  aria-label={`Visit my ${platform.name}`}
-                  title={`Visit my ${platform.name}`}
-                >
-                  <img
-                    src={`/${platform.name}-svgrepo-com.svg`}
-                    alt={`${platform.name} icon`}
-                    className="w-5 h-5 filter invert"
-                    loading="lazy"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="space-y-4 group">
+  <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 group-hover:from-purple-400 group-hover:to-blue-600 transition-all duration-500">
+    Counseling Sessions
+  </h3>
+  <ul className="space-y-3">
+    <li className="text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2 cursor-default group/list">
+      <span className="inline-flex items-center">
+        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mr-3 group-hover/list:scale-125 transition-transform duration-300"></span>
+        <span>One-on-One Offline Counseling Sessions</span>
+      </span>
+    </li>
+    <li className="text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2 cursor-default group/list">
+      <span className="inline-flex items-center">
+        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mr-3 group-hover/list:scale-125 transition-transform duration-300"></span>
+        <span>Online video Counseling Sessions</span>
+      </span>
+    </li>
+    <li className="text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2 cursor-default group/list">
+      <span className="inline-flex items-center">
+        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mr-3 group-hover/list:scale-125 transition-transform duration-300"></span>
+        <span>Quick Doubt Solving</span>
+      </span>
+    </li>
+    <li className="text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2 cursor-default group/list">
+      <span className="inline-flex items-center">
+        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mr-3 group-hover/list:scale-125 transition-transform duration-300"></span>
+        <span>Workshops & Webinars</span>
+      </span>
+    </li>
+    <li className="text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2 cursor-default group/list">
+      <span className="inline-flex items-center">
+        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mr-3 group-hover/list:scale-125 transition-transform duration-300"></span>
+        <span>Post-Session Support</span>
+      </span>
+    </li>
+  </ul>
+  
+  {/* Optional: Add a subtle card effect on the entire section */}
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"></div>
+</div>
 
           {/* Contact Info */}
           <address className="not-italic space-y-4">
@@ -171,7 +183,8 @@ const Footbar = () => {
           </p>
         </div>
         <div className="visitor-counter text-center text-white text-2xl mt-4">
-          <h2 className="text-2xl font-bold">Visitors: {count}</h2>
+          {/* <h2 className="text-2xl font-bold">Visitors: {count}</h2> */}
+          <h2 className="text-2xl font-bold">Visitors: 1k+</h2>
         </div>
       </div>
     </footer>
